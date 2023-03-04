@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import sklearn
 
-
+st.write('Приложение для определения риска развития сердечно-сосудистых заболеваний')
 def load():
     with open ("model.pcl", "rb") as fid:
         return pickle.load(fid)
