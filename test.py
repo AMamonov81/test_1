@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import sklearn
 
 
 def load():
@@ -25,7 +26,7 @@ model = load()
 y_pr = model.predict_proba([[age, gender, height, weight, ap_hi, ap_lo, cholesterol, gluc, smoke, alco, active]])[:, 1]
 
 st.write(y_pr)
-if weight/(height/100) > 30:
+if weight/((height/100)**2) > 30:
     st.write('Для снижения риска сердечной патологии необходимо снизить массу тела')
 
 if ap_hi > 140:
